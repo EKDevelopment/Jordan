@@ -58,8 +58,9 @@ function sendPost(buttonIndex) {
  
     var latitude = 0;
     var longitude = 0;
-    postData = '{"StreetName":"152 Greenwood Ln", "City":"Waltham", "State":"MA", "PostalCode":"02451", "Country":"US"}';
-    $("#details").append('<li id="DataReceived" name="head" >Sent: ' + postData + '</li>' );
+    //postData = '{"StreetName":"152 Greenwood Ln", "City":"Waltham", "State":"MA", "PostalCode":"02451", "Country":"US"}';
+    postData = '{"StreetName":"' + document.getElementById('StreetAddress').value + '", "City":"' + document.getElementById('City').value  + '", "State":"' + document.getElementById('State').value  + '", "PostalCode":"' + document.getElementById('Zip').value  + '", "Country":"US"}';
+        //$("#details").append('<li id="DataReceived" name="head" >Sent: ' + postData + '</li>' );
     $.ajax({
            type: "POST",
            contentType: "application/json; charset=utf-8",
@@ -74,7 +75,7 @@ function sendPost(buttonIndex) {
  
               for (var key in address)
            {
-               $("#details").append('<li> ' + key +':' + address[key] + '</li>' );
+               //$("#details").append('<li> ' + key +':' + address[key] + '</li>' );
                if (key = "latitude")
                {
                   latitude = address[key];
