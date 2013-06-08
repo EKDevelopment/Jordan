@@ -15,20 +15,11 @@ function onConfirm(buttonIndex) {
     alert('You selected button ' + buttonIndex);
 }
 
-// Show a custom confirmation dialog
-//
-function showConfirm() {
-    navigator.notification.confirm(
-                                   'You are the winner!',  // message
-                                   onConfirm,              // callback to invoke with index of button pressed
-                                   'Game Over',            // title
-                                   'Restart, Exit'          // buttonLabels
-                                   );
-}
 
 function sendData()
 {
-    navigator.notification.confirm('Some Address', sendPost, 'Getting the location', 'Cancel,Send');
+    alertMessage = document.getElementById('StreetAddress').value + ", " + document.getElementById('City').value + " " + document.getElementById('State').value + ", " + document.getElementById('Zip').value
+    navigator.notification.confirm(alertMessage, sendPost, 'Show Address', 'Cancel,Send');
 }
 
 /*function sendPost(buttonIndex)
@@ -93,7 +84,7 @@ function sendPost(buttonIndex) {
           
            var myLocation = new google.maps.LatLng(latitude, longitude);
            //$("#details").append('<li id="Jordan" name="head" >HERE</li>' );
-           alert(myLocation);
+           //alert(myLocation);
            var map  = new google.maps.Map(document.getElementById('map_canvas'), {
                                       mapTypeId: google.maps.MapTypeId.ROADMAP,
                                       center: myLocation,
